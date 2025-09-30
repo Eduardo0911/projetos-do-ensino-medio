@@ -1,0 +1,182 @@
+Com certeza\! Para que os vídeos do **Viniccius13** fiquem com um visual de "Netflix" na sua página, aqui está o arquivo **`styles.css`** completo.
+
+Este CSS é otimizado para ser **responsivo**, ou seja, ele se adapta bem tanto em telas grandes (desktops) quanto em telas menores (celulares).
+
+```css
+/* styles.css */
+
+/* CONFIGURAÇÕES GLOBAIS E FONTE */
+* {
+    /* Remove margens e preenchimentos padrão */
+    margin: 0;
+    padding: 0;
+    /* Faz com que o padding e a borda sejam incluídos na largura e altura total do elemento */
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-fundo: #090909; /* Preto muito escuro */
+    --cor-texto: #ffffff; /* Branco */
+    --cor-destaque: #e50914; /* Vermelho Netflix */
+    --font-principal: 'Chakra Petch', sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--font-principal);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita barra de rolagem horizontal indesejada */
+}
+
+/* CABEÇALHO (HEADER) */
+header {
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cor-destaque);
+    background-color: #000000;
+    border-bottom: 2px solid var(--cor-destaque);
+    letter-spacing: 5px;
+}
+
+/* SEÇÃO DE CHAMADA (DESTAQUE PRINCIPAL) */
+.chamada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 5%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), var(--cor-fundo)), url('caminho/para/imagem/de/fundo.jpg'); /* Opcional: Adicione uma imagem de fundo sutil aqui */
+    background-size: cover;
+    background-position: center;
+    min-height: 70vh; /* Ocupa 70% da altura da tela */
+}
+
+.chamada-texto {
+    max-width: 600px;
+    text-align: center;
+}
+
+.chamada-texto h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.chamada-texto p {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-top: 1rem;
+}
+
+/* iframe do YouTube (Destaque) */
+.chamada iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px; /* Altura padrão para 16:9 em telas maiores */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.5); /* Sombra vermelha de destaque */
+}
+
+/* SEÇÃO DE CATEGORIA (Carrossel de vídeos) */
+.categoria {
+    padding: 2rem 5%;
+}
+
+.categoria h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--cor-destaque);
+    padding-left: 10px;
+}
+
+.categoria-videos {
+    display: flex;
+    overflow-x: scroll; /* Permite a rolagem horizontal */
+    gap: 1rem; /* Espaço entre os vídeos */
+    padding-bottom: 1rem; /* Espaço para a barra de rolagem */
+    /* Estilo de barra de rolagem customizado (Webkit - Chrome, Safari) */
+    scrollbar-color: var(--cor-destaque) transparent;
+    scrollbar-width: thin;
+}
+
+.categoria-videos::-webkit-scrollbar {
+    height: 8px;
+}
+
+.categoria-videos::-webkit-scrollbar-thumb {
+    background-color: var(--cor-destaque);
+    border-radius: 10px;
+}
+
+.categoria-videos::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.categoria-videos a {
+    flex-shrink: 0; /* Impede que os itens encolham */
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 4px;
+}
+
+.categoria-videos img {
+    width: 280px; /* Largura fixa para miniaturas */
+    height: 157.5px; /* Altura para manter a proporção 16:9 */
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+/* Efeito Hover (ao passar o mouse) */
+.categoria-videos a:hover {
+    transform: scale(1.05); /* Aumenta um pouco */
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* RESPONSIVIDADE PARA TELAS PEQUENAS (CELULARES) */
+@media (max-width: 768px) {
+    header {
+        font-size: 2rem;
+        padding: 1rem 0;
+        letter-spacing: 3px;
+    }
+
+    .chamada {
+        padding: 2rem 3%;
+        min-height: auto;
+    }
+
+    .chamada-texto h1 {
+        font-size: 2rem;
+    }
+
+    .chamada-texto p {
+        font-size: 1rem;
+    }
+
+    /* Reduz o tamanho do iframe no celular */
+    .chamada iframe {
+        width: 100%;
+        height: 250px;
+    }
+
+    .categoria h2 {
+        font-size: 1.5rem;
+    }
+
+    .categoria-videos img {
+        width: 200px; /* Miniaturas um pouco menores no celular */
+        height: 112.5px;
+    }
+}
+```
+
+### Como usar:
+
+1.  Crie um novo arquivo chamado **`styles.css`** (com 's' minúsculo) na mesma pasta onde está seu arquivo HTML.
+2.  Copie e cole todo o código acima neste novo arquivo.
+3.  O seu HTML já está linkado para este arquivo com a linha `<link rel="stylesheet" href="styles.css">`, então tudo deve funcionar perfeitamente.
